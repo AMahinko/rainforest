@@ -1,4 +1,18 @@
 <h1>New product</h1>
 <%= link_to 'Back', products_path %>
 
+<% if @product.errors.full_messages.any? %>
+   <div class="error_summary">
+     <h2> <%= "#{@product.errors.count} error(s) have occured." %></h2>
+     <h3> <%= "Please correct the following issues and resubmit" %></h3>
+
+   <ul>
+     <% @product.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li>
+     <% end %>
+   </ul>
+ </div>
+ <% end %>
+
+
 <%= render 'form' %>
