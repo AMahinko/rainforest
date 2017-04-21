@@ -1,0 +1,40 @@
+<h1>Sign up</h1>
+
+<% if @user.errors.full_messages.any? %>
+   <div class="error_summary">
+     <h2> <%= "#{@user.errors.count} error(s) have occured." %></h2>
+     <h3> <%= "Please correct the following issues and resubmit" %></h3>
+
+   <ul>
+     <% @user.errors.full_messages.each do |msg| %>
+     <li><%= msg %></li>
+     <% end %>
+   </ul>
+ </div>
+ <% end %>
+
+<%= form_for @user do |f| %>
+
+<p>
+  <%= f.label :email %>
+</p>
+<p>
+  <%= f.text_field :email %>
+</p>
+
+<p>
+  <%= f.label :password %>
+</p>
+<p>
+  <%= f.password_field :password %>
+</p>
+
+<p>
+  <%= f.label :password_confirmation %>
+</p>
+<p>
+  <%= f.password_field :password_confirmation %>
+</p>
+
+<%= f.submit %>
+<% end %>
