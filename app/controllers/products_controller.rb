@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products =  Products.all
+    @products =  Product.all
   end
 
   def show
@@ -40,6 +40,12 @@ class ProductsController < ApplicationController
       render :edit
       return
     end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to_products_url
   end
 
   private
