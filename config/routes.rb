@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'users/create'
-
-  get 'users/new'
-
-  get 'users/create0'
 
   # get '/products' 'products#index'
   # get '/products' 'products#create'
@@ -18,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :products
   resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
