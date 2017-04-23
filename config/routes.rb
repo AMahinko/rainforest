@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   # get '/products' 'products#index'
   # get '/products' 'products#create'
   # get '/products/new' 'products#new'
@@ -11,7 +10,9 @@ Rails.application.routes.draw do
   # delete 'products/:id' 'products#delete'
 
 
-  resources :products
+  resources :products do
+    resources :reviews, only: [:show, :create, :destroy]
+  end
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
 
